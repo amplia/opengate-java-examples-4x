@@ -18,6 +18,11 @@
         <delete dir="${build}" />
     </target>
 
+    <target name="get-dependencies">
+        <get dest="${basedir}/opengate-java-examples-dependencies.zip" src="http://bit.ly/ogdeps"/>
+    	<unzip dest="${basedir}" src="${basedir}/opengate-java-examples-dependencies.zip"/>
+    </target>
+
     <target name="copy-resources">
         <mkdir dir="${build}" />
         <copy todir="${build}">
