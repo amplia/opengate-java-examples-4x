@@ -1,0 +1,1134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:OpenGateWS" xmlns:impl="urn:OpenGateWS" xmlns:intf="urn:OpenGateWS" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:OpenGateWS">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="UserWithoutPersistenceException">
+    <sequence>
+     <element name="errorCode" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="UserNotFoundException">
+    <sequence/>
+   </complexType>
+   <complexType name="ArrayOf_xsd_string">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:string[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="sendResponseResponse">
+
+      <wsdl:part name="sendResponseReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="unSetListenerResponse">
+
+      <wsdl:part name="unSetListenerReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="readNotificationsResponse">
+
+      <wsdl:part name="readNotificationsReturn" type="impl:ArrayOf_xsd_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="readEventRequestsResponse">
+
+      <wsdl:part name="readEventRequestsReturn" type="impl:ArrayOf_xsd_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendAsyncCommandRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+      <wsdl:part name="_message" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="readCommandRequestsRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+      <wsdl:part name="_maxNumberOfMessages" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendResponseRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+      <wsdl:part name="_message" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendNotificationResponse">
+
+      <wsdl:part name="sendNotificationReturn" type="xsd:boolean"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="UserNotFoundException">
+
+      <wsdl:part name="fault" type="impl:UserNotFoundException"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="readCommandRequestsResponse">
+
+      <wsdl:part name="readCommandRequestsReturn" type="impl:ArrayOf_xsd_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDevicesStatusRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+      <wsdl:part name="_destinationList" type="impl:ArrayOf_xsd_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="unSetListenerRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendBatchAsyncCommandsResponse">
+
+      <wsdl:part name="sendBatchAsyncCommandsReturn" type="impl:ArrayOf_xsd_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendEventResponse">
+
+      <wsdl:part name="sendEventReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="readResponsesRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+      <wsdl:part name="_maxNumberOfMessages" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setListenerResponse">
+
+      <wsdl:part name="setListenerReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="readMessagesRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+      <wsdl:part name="_maxNumberOfMessages" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendBatchEventsRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+      <wsdl:part name="_messages" type="impl:ArrayOf_xsd_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="readResponseRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+      <wsdl:part name="_messageId" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="readResponsesResponse">
+
+      <wsdl:part name="readResponsesReturn" type="impl:ArrayOf_xsd_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="readNotificationResponse">
+
+      <wsdl:part name="readNotificationReturn" type="impl:ArrayOf_xsd_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendBatchAsyncCommandsRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+      <wsdl:part name="_messageList" type="impl:ArrayOf_xsd_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendAsyncCommandResponse">
+
+      <wsdl:part name="sendAsyncCommandReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeviceStatusResponse">
+
+      <wsdl:part name="getDeviceStatusReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDevicesStatusResponse">
+
+      <wsdl:part name="getDevicesStatusReturn" type="impl:ArrayOf_xsd_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getListenerStatusRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+      <wsdl:part name="_endpoint" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="readNotificationsRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+      <wsdl:part name="_maxNumberOfMessages" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeviceStatusRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+      <wsdl:part name="_destination" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getListenerStatusResponse">
+
+      <wsdl:part name="getListenerStatusReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendCommandRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+      <wsdl:part name="_message" type="xsd:string"/>
+
+      <wsdl:part name="_timeOut" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="readMessagesResponse">
+
+      <wsdl:part name="readMessagesReturn" type="impl:ArrayOf_xsd_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendBatchEventsResponse">
+
+      <wsdl:part name="sendBatchEventsReturn" type="impl:ArrayOf_xsd_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="readNotificationRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+      <wsdl:part name="_messageId" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="readEventRequestsRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+      <wsdl:part name="_maxNumberOfMessages" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendCommandResponse">
+
+      <wsdl:part name="sendCommandReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendEventRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+      <wsdl:part name="_message" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="UserWithoutPersistenceException">
+
+      <wsdl:part name="fault" type="impl:UserWithoutPersistenceException"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendNotificationRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+      <wsdl:part name="_destination" type="xsd:string"/>
+
+      <wsdl:part name="_transactionId" type="xsd:long"/>
+
+      <wsdl:part name="_connectorType" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setListenerRequest">
+
+      <wsdl:part name="_role" type="xsd:string"/>
+
+      <wsdl:part name="_username" type="xsd:string"/>
+
+      <wsdl:part name="_password" type="xsd:string"/>
+
+      <wsdl:part name="_channel" type="xsd:string"/>
+
+      <wsdl:part name="_organization" type="xsd:string"/>
+
+      <wsdl:part name="_endpoint" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="readResponseResponse">
+
+      <wsdl:part name="readResponseReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="OpenGateWS">
+
+      <wsdl:operation name="sendCommand" parameterOrder="_role _username _password _channel _organization _message _timeOut">
+
+         <wsdl:input name="sendCommandRequest" message="impl:sendCommandRequest"/>
+
+         <wsdl:output name="sendCommandResponse" message="impl:sendCommandResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+         <wsdl:fault name="UserWithoutPersistenceException" message="impl:UserWithoutPersistenceException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendAsyncCommand" parameterOrder="_role _username _password _channel _organization _message">
+
+         <wsdl:input name="sendAsyncCommandRequest" message="impl:sendAsyncCommandRequest"/>
+
+         <wsdl:output name="sendAsyncCommandResponse" message="impl:sendAsyncCommandResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendEvent" parameterOrder="_role _username _password _channel _organization _message">
+
+         <wsdl:input name="sendEventRequest" message="impl:sendEventRequest"/>
+
+         <wsdl:output name="sendEventResponse" message="impl:sendEventResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendNotification" parameterOrder="_role _username _password _channel _organization _destination _transactionId _connectorType">
+
+         <wsdl:input name="sendNotificationRequest" message="impl:sendNotificationRequest"/>
+
+         <wsdl:output name="sendNotificationResponse" message="impl:sendNotificationResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendResponse" parameterOrder="_role _username _password _channel _organization _message">
+
+         <wsdl:input name="sendResponseRequest" message="impl:sendResponseRequest"/>
+
+         <wsdl:output name="sendResponseResponse" message="impl:sendResponseResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendBatchEvents" parameterOrder="_role _username _password _channel _organization _messages">
+
+         <wsdl:input name="sendBatchEventsRequest" message="impl:sendBatchEventsRequest"/>
+
+         <wsdl:output name="sendBatchEventsResponse" message="impl:sendBatchEventsResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendBatchAsyncCommands" parameterOrder="_role _username _password _channel _organization _messageList">
+
+         <wsdl:input name="sendBatchAsyncCommandsRequest" message="impl:sendBatchAsyncCommandsRequest"/>
+
+         <wsdl:output name="sendBatchAsyncCommandsResponse" message="impl:sendBatchAsyncCommandsResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDeviceStatus" parameterOrder="_role _username _password _channel _organization _destination">
+
+         <wsdl:input name="getDeviceStatusRequest" message="impl:getDeviceStatusRequest"/>
+
+         <wsdl:output name="getDeviceStatusResponse" message="impl:getDeviceStatusResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDevicesStatus" parameterOrder="_role _username _password _channel _organization _destinationList">
+
+         <wsdl:input name="getDevicesStatusRequest" message="impl:getDevicesStatusRequest"/>
+
+         <wsdl:output name="getDevicesStatusResponse" message="impl:getDevicesStatusResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="readResponse" parameterOrder="_role _username _password _channel _organization _messageId">
+
+         <wsdl:input name="readResponseRequest" message="impl:readResponseRequest"/>
+
+         <wsdl:output name="readResponseResponse" message="impl:readResponseResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="readResponses" parameterOrder="_role _username _password _channel _organization _maxNumberOfMessages">
+
+         <wsdl:input name="readResponsesRequest" message="impl:readResponsesRequest"/>
+
+         <wsdl:output name="readResponsesResponse" message="impl:readResponsesResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="readCommandRequests" parameterOrder="_role _username _password _channel _organization _maxNumberOfMessages">
+
+         <wsdl:input name="readCommandRequestsRequest" message="impl:readCommandRequestsRequest"/>
+
+         <wsdl:output name="readCommandRequestsResponse" message="impl:readCommandRequestsResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="readEventRequests" parameterOrder="_role _username _password _channel _organization _maxNumberOfMessages">
+
+         <wsdl:input name="readEventRequestsRequest" message="impl:readEventRequestsRequest"/>
+
+         <wsdl:output name="readEventRequestsResponse" message="impl:readEventRequestsResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="readNotification" parameterOrder="_role _username _password _channel _organization _messageId">
+
+         <wsdl:input name="readNotificationRequest" message="impl:readNotificationRequest"/>
+
+         <wsdl:output name="readNotificationResponse" message="impl:readNotificationResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="readNotifications" parameterOrder="_role _username _password _channel _organization _maxNumberOfMessages">
+
+         <wsdl:input name="readNotificationsRequest" message="impl:readNotificationsRequest"/>
+
+         <wsdl:output name="readNotificationsResponse" message="impl:readNotificationsResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="readMessages" parameterOrder="_role _username _password _channel _organization _maxNumberOfMessages">
+
+         <wsdl:input name="readMessagesRequest" message="impl:readMessagesRequest"/>
+
+         <wsdl:output name="readMessagesResponse" message="impl:readMessagesResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setListener" parameterOrder="_role _username _password _channel _organization _endpoint">
+
+         <wsdl:input name="setListenerRequest" message="impl:setListenerRequest"/>
+
+         <wsdl:output name="setListenerResponse" message="impl:setListenerResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="unSetListener" parameterOrder="_role _username _password _channel _organization">
+
+         <wsdl:input name="unSetListenerRequest" message="impl:unSetListenerRequest"/>
+
+         <wsdl:output name="unSetListenerResponse" message="impl:unSetListenerResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getListenerStatus" parameterOrder="_role _username _password _channel _organization _endpoint">
+
+         <wsdl:input name="getListenerStatusRequest" message="impl:getListenerStatusRequest"/>
+
+         <wsdl:output name="getListenerStatusResponse" message="impl:getListenerStatusResponse"/>
+
+         <wsdl:fault name="UserNotFoundException" message="impl:UserNotFoundException"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="OpenGateWSSoapBinding" type="impl:OpenGateWS">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="sendCommand">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sendCommandRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sendCommandResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="UserWithoutPersistenceException">
+
+            <wsdlsoap:fault name="UserWithoutPersistenceException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendAsyncCommand">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sendAsyncCommandRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sendAsyncCommandResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendEvent">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sendEventRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sendEventResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendNotification">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sendNotificationRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sendNotificationResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendResponse">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sendResponseRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sendResponseResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendBatchEvents">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sendBatchEventsRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sendBatchEventsResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendBatchAsyncCommands">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sendBatchAsyncCommandsRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sendBatchAsyncCommandsResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDeviceStatus">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDeviceStatusRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDeviceStatusResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDevicesStatus">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDevicesStatusRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDevicesStatusResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="readResponse">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="readResponseRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="readResponseResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="readResponses">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="readResponsesRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="readResponsesResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="readCommandRequests">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="readCommandRequestsRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="readCommandRequestsResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="readEventRequests">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="readEventRequestsRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="readEventRequestsResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="readNotification">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="readNotificationRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="readNotificationResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="readNotifications">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="readNotificationsRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="readNotificationsResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="readMessages">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="readMessagesRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="readMessagesResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setListener">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setListenerRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setListenerResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="unSetListener">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="unSetListenerRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="unSetListenerResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getListenerStatus">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getListenerStatusRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getListenerStatusResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="UserNotFoundException">
+
+            <wsdlsoap:fault name="UserNotFoundException" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateWS"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="OpenGateWSService">
+
+      <wsdl:port name="OpenGateWS" binding="impl:OpenGateWSSoapBinding">
+
+         <wsdlsoap:address location="http://localhost:8080/axis/services/OpenGateWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

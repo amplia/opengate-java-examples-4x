@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-ogmessage
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="XmlOGMessage310.xsd"
+  version="310">
+  <!-- ========================================================== -->
+  <!-- Message Header (meta-information)-->
+  <!-- ========================================================== -->
+  <header>
+    <!-- Message Identifier -->
+    <transaction-id>421234123</transaction-id>
+    <!-- Operation Name -->
+    <op-name>TEST_OPERATION</op-name>
+    <!--Operation Type - Event=122 -->
+    <op-type>122</op-type>
+    <!-- Message destination -->
+    <identifier>test_application</identifier>
+    <!-- Outgoing connector - TCP=2 -->
+    <connector-type>2</connector-type>
+    <!-- Timestamp -->
+    <timestamp>2006-09-05T17:57:12</timestamp>
+    <!-- Notification level setup -->
+    <notification
+      platform-departure="true"
+      destination-arrival="true"
+      if-error="true" />
+  </header>
+  <!-- ========================================================== -->
+  <!-- Message Body (data)-->
+  <!-- ========================================================== -->
+  <body>
+    <data-unit
+      id="0"
+      type="int">
+      12
+    </data-unit>
+    <data-unit
+      id="1"
+      type="string">
+      Example Messages
+    </data-unit>
+    <data-unit
+      id="2"
+      type="boolean">
+      
+    </data-unit>
+  </body>
+</xml-ogmessage>

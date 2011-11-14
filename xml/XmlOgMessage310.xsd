@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by  () -->
+<!--
+	Este es el schema XML para los mensajes a intercambiar a traves del 
+	conector WebService de la plataforma de comunicaciones OpenGate.
+	A continuacion se describe el significado de algunas de las constantes
+	utilizadas en el schema:
+	
+	Constantes para el campo op-type (desde CBrokerConstants)
+	=========================================================
+	Con este valor se indica el tipo de operación que se desea 
+	realiza
+	* Operación de tipo Solicitud de Comando: 121
+	* Operación de tipo Evento: 122
+	* Operación de tipo Respuesta de Comando: 123
+	* Operación de tipo Respuesta como Excepcion: 124
+	* Operación de tipo Notificacion de : 125
+	* Operación de tipo Respuesta de Error: 126
+	
+	Constantes para el campo connector-type
+	=========================================================
+	Con este valor se indica el tipo de conector por el que se desea
+	que salga el mensaje:
+	* Tipo de conector de salida Desconocido: 1
+	* Tipo de conector de salida TCP: 2
+	* Tipo de conector de salida WebService: 4
+	* Tipo de conector de salida SMS: 8
+	* Tipo de conector de salida USSD: 16
+	* Tipo de conector de salida JMS: 32
+	* Tipo de conector de salida FTS: 64
+	* Tipo de conector de salida OPEN_PROTOCOL: 128
+	* Tipo de conector de salida MODEM: 256
+	* Tipo de conector de salida BLOCKING_OPEN_PROTOCOL: 512
+	
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+	<xs:element name="identifier" type="xs:string" />
+	<xs:element name="body">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="data-unit" minOccurs="0"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="data-unit">
+		<xs:complexType mixed="true">
+			<xs:attribute name="type" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="boolean" />
+						<xs:enumeration value="char" />
+						<xs:enumeration value="double" />
+						<xs:enumeration value="float" />
+						<xs:enumeration value="int" />
+						<xs:enumeration value="short" />
+						<xs:enumeration value="string" />
+						<xs:enumeration value="u-char" />
+						<xs:enumeration value="u-int" />
+						<xs:enumeration value="u-short" />
+						<xs:enumeration value="array" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="id" type="xs:int" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="header">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="transaction-id" />
+				<xs:element ref="op-name" />
+				<xs:element ref="op-type" minOccurs="0" />
+				<xs:element ref="identifier" />
+				<xs:element ref="connector-type" minOccurs="0" />
+				<xs:element ref="timestamp" />
+				<xs:element ref="notification" />
+				<xs:element ref="ttl" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="xml-ogmessage">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="header" />
+				<xs:element ref="body" />
+			</xs:sequence>
+			<xs:attribute name="version" type="xs:int" use="required"
+				fixed="310" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="op-name" type="xs:string" />
+	<xs:element name="op-type">
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:enumeration value="121" />
+				<xs:enumeration value="122" />
+				<xs:enumeration value="123" />
+				<xs:enumeration value="124" />
+				<xs:enumeration value="125" />
+				<xs:enumeration value="126" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="connector-type">
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:enumeration value="1" />
+				<xs:enumeration value="2" />
+				<xs:enumeration value="4" />
+				<xs:enumeration value="8" />
+				<xs:enumeration value="16" />
+				<xs:enumeration value="32" />
+				<xs:enumeration value="64" />
+				<xs:enumeration value="128" />
+				<xs:enumeration value="256" />
+				<xs:enumeration value="512" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="timestamp" type="xs:dateTime" />
+	<xs:element name="transaction-id">
+		<xs:simpleType>
+			<xs:restriction base="xs:long">
+				<xs:minInclusive value="-1" />
+				<xs:maxInclusive value="4294967295" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ttl">
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:minInclusive value="-1"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="notification">
+		<xs:complexType>
+			<xs:attribute name="platform-departure" type="xs:boolean"
+				use="required" />
+			<xs:attribute name="destination-arrival" type="xs:boolean"
+				use="required" />
+			<xs:attribute name="if-error" type="xs:boolean"
+				use="required" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

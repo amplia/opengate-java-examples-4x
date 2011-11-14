@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="opengate-examples" basedir="." default="generate-code">
+
+    <property name="src" value="${basedir}/src/main/java" />
+    <property name="webapp" value="${basedir}/src/main/webapp" />
+    <property name="build" value="${basedir}/classes" />
+    <property name="lib" value="${basedir}/lib" />
+    <property name="wsdl" value="${basedir}/wsdl" />
+    <property name="xml" value="${basedir}/xml" />
+
+    <path id="prj.classpath">
+        <fileset dir="${lib}">
+            <include name="**/*.jar" />
+        </fileset>
+    </path>
+
+    <target name="clean">
+        <delete dir="${build}" />
+    </target>
+
+    <target name="copy-resources">
+        <mkdir dir="${build}" />
+        <copy todir="${build}">
+            <fileset dir="${src}">
+                <patternset>
+                    <exclude name="**/*.java" />
+                </patternset>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="make" depends="copy-resources">
+        <javac destdir="${build}" srcdir="${src}" debug="yes">
+            <classpath refid="prj.classpath" />
+        </javac>
+    </target>
+
+    <target name="rebuild" depends="clean, make" />
+
+    <target name="generate-webservice">
+
+        <taskdef resource="axis-tasks.properties" classpathref="prj.classpath" />
+
+        <!-- Service -->
+        <property name="service.wsdl" value="${wsdl}/OpenGateWS.wsdl" />
+        <property name="service.package"
+                  value="com.opengate.webservice.service" />
+        <property name="service.implementation" value="OpenGateWSImpl" />
+        <property name="service.namespace" value="urn:OpenGateWS" />
+        <axis-wsdl2java output="${src}"
+                        serverside="false"
+                        skeletondeploy="false"
+                        testcase="false"
+                        verbose="true"
+                        url="${service.wsdl}"
+                        implementationClassName="${service.package}.${service.implementation}">
+            <mapping namespace="${service.namespace}"
+                     package="${service.package}" />
+        </axis-wsdl2java>
+
+        <!-- Listener -->
+        <property name="listener.wsdl"
+                  value="${wsdl}/OpenGateListenerWS.wsdl" />
+        <property name="listener.package"
+                  value="com.opengate.webservice.listener" />
+        <property name="listener.implementation" value="OpenGateListenerImpl" />
+        <property name="listener.namespace" value="urn:OpenGateListenerWS" />
+        <axis-wsdl2java output="${src}"
+                        serverside="true"
+                        skeletondeploy="true"
+                        testcase="false"
+                        verbose="true"
+                        url="${listener.wsdl}"
+                        implementationClassName="${listener.package}.${listener.implementation}">
+            <mapping namespace="${listener.namespace}"
+                     package="${listener.package}" />
+        </axis-wsdl2java>
+    </target>
+
+    <target name="generate-xml">
+        <taskdef name="castor-srcgen"
+                 classname="org.exolab.castor.tools.ant.taskdefs.CastorSourceGenTask"
+                 classpathref="prj.classpath" />
+
+        <property name="castor.xsd" value="${xml}/XmlOgMessage310.xsd" />
+        <property name="castor.package" value="com.opengate.webservice.xml" />
+        <property name="castor.folder" value="com/opengate/webservice/xml" />
+        <delete failonerror="false">
+            <fileset dir="${src}/${castor.folder}">
+                <include name="**.java" />
+            </fileset>
+        </delete>
+
+        <castor-srcgen file="${castor.xsd}"
+                       todir="${src}"
+                       package="${castor.package}"
+                       types="j2"
+                       warnings="false" />
+    </target>
+
+    <target name="generate-code" depends="generate-xml, generate-webservice">
+    </target>
+
+</project>

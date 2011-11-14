@@ -1,0 +1,30 @@
+/**
+ * OpenGateWS.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.opengate.webservice.service;
+
+public interface OpenGateWS extends java.rmi.Remote {
+    public java.lang.String sendCommand(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization, java.lang.String _message, int _timeOut) throws java.rmi.RemoteException, com.opengate.webservice.service.UserWithoutPersistenceException, com.opengate.webservice.service.UserNotFoundException;
+    public java.lang.String sendAsyncCommand(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization, java.lang.String _message) throws java.rmi.RemoteException, com.opengate.webservice.service.UserNotFoundException;
+    public java.lang.String sendEvent(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization, java.lang.String _message) throws java.rmi.RemoteException, com.opengate.webservice.service.UserNotFoundException;
+    public boolean sendNotification(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization, java.lang.String _destination, long _transactionId, int _connectorType) throws java.rmi.RemoteException, com.opengate.webservice.service.UserNotFoundException;
+    public java.lang.String sendResponse(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization, java.lang.String _message) throws java.rmi.RemoteException, com.opengate.webservice.service.UserNotFoundException;
+    public java.lang.String[] sendBatchEvents(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization, java.lang.String[] _messages) throws java.rmi.RemoteException, com.opengate.webservice.service.UserNotFoundException;
+    public java.lang.String[] sendBatchAsyncCommands(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization, java.lang.String[] _messageList) throws java.rmi.RemoteException, com.opengate.webservice.service.UserNotFoundException;
+    public java.lang.String getDeviceStatus(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization, java.lang.String _destination) throws java.rmi.RemoteException, com.opengate.webservice.service.UserNotFoundException;
+    public java.lang.String[] getDevicesStatus(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization, java.lang.String[] _destinationList) throws java.rmi.RemoteException, com.opengate.webservice.service.UserNotFoundException;
+    public java.lang.String readResponse(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization, java.lang.String _messageId) throws java.rmi.RemoteException, com.opengate.webservice.service.UserNotFoundException;
+    public java.lang.String[] readResponses(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization, int _maxNumberOfMessages) throws java.rmi.RemoteException, com.opengate.webservice.service.UserNotFoundException;
+    public java.lang.String[] readCommandRequests(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization, int _maxNumberOfMessages) throws java.rmi.RemoteException, com.opengate.webservice.service.UserNotFoundException;
+    public java.lang.String[] readEventRequests(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization, int _maxNumberOfMessages) throws java.rmi.RemoteException, com.opengate.webservice.service.UserNotFoundException;
+    public java.lang.String[] readNotification(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization, java.lang.String _messageId) throws java.rmi.RemoteException, com.opengate.webservice.service.UserNotFoundException;
+    public java.lang.String[] readNotifications(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization, int _maxNumberOfMessages) throws java.rmi.RemoteException, com.opengate.webservice.service.UserNotFoundException;
+    public java.lang.String[] readMessages(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization, int _maxNumberOfMessages) throws java.rmi.RemoteException, com.opengate.webservice.service.UserNotFoundException;
+    public java.lang.String setListener(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization, java.lang.String _endpoint) throws java.rmi.RemoteException, com.opengate.webservice.service.UserNotFoundException;
+    public java.lang.String unSetListener(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization) throws java.rmi.RemoteException, com.opengate.webservice.service.UserNotFoundException;
+    public java.lang.String getListenerStatus(java.lang.String _role, java.lang.String _username, java.lang.String _password, java.lang.String _channel, java.lang.String _organization, java.lang.String _endpoint) throws java.rmi.RemoteException, com.opengate.webservice.service.UserNotFoundException;
+}

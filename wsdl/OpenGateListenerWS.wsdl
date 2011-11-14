@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:OpenGateListenerWS" xmlns:impl="urn:OpenGateListenerWS" xmlns:intf="urn:OpenGateListenerWS" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+
+   <wsdl:message name="handleCommandRequest">
+
+      <wsdl:part name="in0" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="handleNotificationResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="handleNotificationRequest">
+
+      <wsdl:part name="in0" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="handleCommandResponse">
+
+      <wsdl:part name="handleCommandReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="handleEventRequest">
+
+      <wsdl:part name="in0" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="handleExceptionRequest">
+
+      <wsdl:part name="in0" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="handleResponseResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="handleExceptionResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="handleResponseRequest">
+
+      <wsdl:part name="in0" type="xsd:long"/>
+
+      <wsdl:part name="in1" type="xsd:int"/>
+
+      <wsdl:part name="in2" type="xsd:string"/>
+
+      <wsdl:part name="in3" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="handleEventResponse">
+
+   </wsdl:message>
+
+   <wsdl:portType name="OpenGateListenerWS">
+
+      <wsdl:operation name="handleException" parameterOrder="in0">
+
+         <wsdl:input name="handleExceptionRequest" message="impl:handleExceptionRequest"/>
+
+         <wsdl:output name="handleExceptionResponse" message="impl:handleExceptionResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="handleCommand" parameterOrder="in0">
+
+         <wsdl:input name="handleCommandRequest" message="impl:handleCommandRequest"/>
+
+         <wsdl:output name="handleCommandResponse" message="impl:handleCommandResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="handleEvent" parameterOrder="in0">
+
+         <wsdl:input name="handleEventRequest" message="impl:handleEventRequest"/>
+
+         <wsdl:output name="handleEventResponse" message="impl:handleEventResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="handleResponse" parameterOrder="in0 in1 in2 in3">
+
+         <wsdl:input name="handleResponseRequest" message="impl:handleResponseRequest"/>
+
+         <wsdl:output name="handleResponseResponse" message="impl:handleResponseResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="handleNotification" parameterOrder="in0">
+
+         <wsdl:input name="handleNotificationRequest" message="impl:handleNotificationRequest"/>
+
+         <wsdl:output name="handleNotificationResponse" message="impl:handleNotificationResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="OpenGateListenerWSSoapBinding" type="impl:OpenGateListenerWS">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="handleException">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="handleExceptionRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateListenerWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="handleExceptionResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateListenerWS"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="handleCommand">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="handleCommandRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateListenerWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="handleCommandResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateListenerWS"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="handleEvent">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="handleEventRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateListenerWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="handleEventResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateListenerWS"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="handleResponse">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="handleResponseRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateListenerWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="handleResponseResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateListenerWS"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="handleNotification">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="handleNotificationRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateListenerWS"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="handleNotificationResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:OpenGateListenerWS"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="OpenGateListenerWSService">
+
+      <wsdl:port name="OpenGateListenerWS" binding="impl:OpenGateListenerWSSoapBinding">
+
+         <wsdlsoap:address location="http://localhost:8080/axis/services/OpenGateListenerWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
