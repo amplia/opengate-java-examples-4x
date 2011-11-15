@@ -17,8 +17,12 @@
     <target name="clean">
         <delete dir="${build}" />
     </target>
+	
+	<target name="check-dependencies">
+		<available file="${basedir}/opengate-java-examples-dependencies.zip" property="dependencies.available"></available>
+	</target>
 
-    <target name="get-dependencies">
+    <target name="get-dependencies" unless="dependencies.available" depends="check-dependencies">
         <get dest="${basedir}/opengate-java-examples-dependencies.zip" src="http://bit.ly/ogdeps"/>
     	<unzip dest="${basedir}" src="${basedir}/opengate-java-examples-dependencies.zip"/>
     </target>
